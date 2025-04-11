@@ -20,7 +20,16 @@ public class Player {
     @JoinColumn
     private Game game;
 
-    // ...
+    @ManyToOne
+    @JoinColumn
+    private User user;
+
+    public User getUser(){
+        return this.user;
+    }
+    public void setUser(User user){
+        this.user=user;
+    }
 
     public long getUid() {
         return uid;

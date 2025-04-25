@@ -1,6 +1,10 @@
 package com.example.accessing_data_rest.model;
 
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 
 @Entity
@@ -19,6 +23,10 @@ public class Player {
     @ManyToOne
     @JoinColumn
     private Game game;
+    @ManyToOne
+    @JoinColumn
+    private User user;
+
 
     // ...
 
@@ -26,8 +34,8 @@ public class Player {
         return uid;
     }
 
-    public void setUid(long id) {
-        this.uid = uid;
+    public void setUid(long uid) {
+        this.uid = this.uid;
     }
 
     public String getName() {
@@ -46,4 +54,7 @@ public class Player {
         this.game = game;
     }
 
+
+    public User getUser(){ return user;}
+    public void setUser(User user){ this.user =user;}
 }

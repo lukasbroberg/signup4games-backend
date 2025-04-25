@@ -18,6 +18,7 @@ public class Game {
 
     private int maxPlayers;
 
+
     // TODO There could be more attributes here, kie
     //      in which state is the sign up for the game, did
     //      the game started or finish (after the game started
@@ -27,6 +28,15 @@ public class Game {
     @OneToMany(mappedBy="game")
     private List<Player> players;
 
+    private User owner;
+
+    public User getOwner(){
+        return this.owner;
+    }
+    public void setOwner(User owner){
+        this.owner=owner;
+    }
+
     public long getUid() {
         return uid;
     }
@@ -34,6 +44,7 @@ public class Game {
     public void setUid(long uid) {
         this.uid = uid;
     }
+
 
 
     public String getName() {

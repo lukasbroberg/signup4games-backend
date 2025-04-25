@@ -18,8 +18,8 @@ public class User {
     // TODO this class needs to be extended with references to Player and
     //      the other way round (similar to the reference from Game to Player
     //      and the other way round.
-//    @OneToMany(mappedBy = "user")
-//    private List<Player> players;
+    @OneToMany(mappedBy = "user")
+    private List<Player> players;
 
     public long getUid() {
         return uid;

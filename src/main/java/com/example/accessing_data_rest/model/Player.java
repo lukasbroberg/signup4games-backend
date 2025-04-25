@@ -28,14 +28,27 @@ public class Player {
     private User user;
 
 
-    // ...
+    @ManyToOne
+    @JoinColumn
+    private User user;
+
+    public User getUser(){
+        return this.user;
+    }
+    public void setUser(User user){
+        this.user=user;
+    }
 
     public long getUid() {
         return uid;
     }
 
     public void setUid(long uid) {
+<<<<<<< HEAD
         this.uid = this.uid;
+=======
+        this.uid = uid;
+>>>>>>> 7c375f802caf9305796f78253220b81878cf659b
     }
 
     public String getName() {

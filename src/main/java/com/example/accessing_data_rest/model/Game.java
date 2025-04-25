@@ -14,21 +14,16 @@ public class Game {
 
     private String name;
 
+    private User owner;
+
+    private GameState state;
+
     private int minPlayers;
 
     private int maxPlayers;
 
-
-    // TODO There could be more attributes here, kie
-    //      in which state is the sign up for the game, did
-    //      the game started or finish (after the game started
-    //      you might not want new players coming in etc.)
-    //      See analogous classes in client.
-
     @OneToMany(mappedBy="game")
     private List<Player> players;
-
-    private User owner;
 
     public User getOwner(){
         return this.owner;
@@ -36,6 +31,15 @@ public class Game {
     public void setOwner(User owner){
         this.owner=owner;
     }
+
+    public GameState getState(){
+        return state;
+    }
+
+    public void setState(GameState state){
+        this.state=state;
+    }
+
 
     public long getUid() {
         return uid;

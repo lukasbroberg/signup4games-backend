@@ -42,11 +42,9 @@ public class Game {
     }
 
     public void setUid(long uid) {
-<<<<<<< HEAD
-        this.uid = this.uid;
-=======
+
         this.uid = uid;
->>>>>>> 7c375f802caf9305796f78253220b81878cf659b
+
     }
 
 

@@ -40,8 +40,6 @@ public class User {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "user")
-    private List<Player> players;
     public List<Player> getPlayers() {
         return players;
     }

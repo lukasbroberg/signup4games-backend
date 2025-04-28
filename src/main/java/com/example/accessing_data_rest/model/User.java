@@ -1,7 +1,10 @@
 package com.example.accessing_data_rest.model;
 
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,5 +39,17 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    @OneToMany(mappedBy = "user")
+    private List<Player> players;
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+
 
 }

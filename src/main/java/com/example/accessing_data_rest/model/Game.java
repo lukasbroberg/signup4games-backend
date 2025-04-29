@@ -14,6 +14,8 @@ public class Game {
 
     private String name;
 
+    @OneToOne
+    @JoinColumn
     private User owner;
 
     private GameState state;

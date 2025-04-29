@@ -1,6 +1,7 @@
 package com.example.accessing_data_rest.controller;
 
 import com.example.accessing_data_rest.services.PlayerServices;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

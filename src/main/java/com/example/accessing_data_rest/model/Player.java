@@ -21,7 +21,7 @@ public class Player {
     private Game game;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "user_id")
     private User user;
 
     public User getUser(){

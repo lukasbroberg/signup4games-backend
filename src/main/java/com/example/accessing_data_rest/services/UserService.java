@@ -23,6 +23,7 @@ public class UserService {
     public List<User> searchUsers(String name){
         List<User> user = userRepository.findByName(name);
         return user;
+
     }
 
     public User createNewUser(User user){

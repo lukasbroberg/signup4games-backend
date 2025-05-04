@@ -1,6 +1,9 @@
 package com.example.accessing_data_rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import org.hibernate.generator.Generator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -10,6 +13,11 @@ import java.util.List;
 
 @Entity
 @Table(name="user_table") // this is important! "user" is a keyword in H2 and not an identifier
+@JsonIdentityInfo(
+        scope = User.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "uid"
+)
 public class User {
 
     @Id
@@ -48,7 +56,5 @@ public class User {
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
-
-
 
 }

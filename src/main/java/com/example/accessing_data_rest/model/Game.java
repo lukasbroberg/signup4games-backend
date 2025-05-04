@@ -1,10 +1,19 @@
 package com.example.accessing_data_rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
 @Entity
+@JsonIdentityInfo(
+        scope = Game.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "uid"
+)
 public class Game {
 
     @Id
@@ -25,6 +34,7 @@ public class Game {
     private int maxPlayers;
 
     @OneToMany(mappedBy="game")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Player> players;
 
     public User getOwner(){
@@ -50,8 +60,6 @@ public class Game {
     public void setUid(long uid) {
         this.uid = uid;
     }
-
-
 
     public String getName() {
         return name;

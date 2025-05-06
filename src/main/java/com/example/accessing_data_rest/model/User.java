@@ -1,6 +1,7 @@
 package com.example.accessing_data_rest.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import org.hibernate.generator.Generator;
@@ -31,6 +32,7 @@ public class User {
     //      the other way round (similar to the reference from Game to Player
     //      and the other way round.
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Player> players;
 
     public long getUid() {

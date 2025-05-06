@@ -2,6 +2,7 @@ package com.example.accessing_data_rest.controller;
 
 import com.example.accessing_data_rest.model.User;
 import com.example.accessing_data_rest.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,11 +10,8 @@ import java.util.List;
 @RestController
 @RequestMapping("roborally/users")
 public class UserController {
+    @Autowired
     private UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     /**
      * To retrieve all users from the server.

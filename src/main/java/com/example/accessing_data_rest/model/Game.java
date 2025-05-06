@@ -3,6 +3,8 @@ package com.example.accessing_data_rest.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -23,10 +25,11 @@ public class Game {
 
     private String name;
 
-    @OneToOne
-    @JoinColumn
+    @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
     private User owner;
 
+    @NotFound(action = NotFoundAction.IGNORE)
     private GameState state;
 
     private int minPlayers;
